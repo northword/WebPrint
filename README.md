@@ -4,7 +4,6 @@
 
 a simple website to share your windows printers to others via web browsers.
 
-
 ## 使用方法
 
 ### I. 开启 IIS 和 ASP 支持
@@ -15,14 +14,14 @@ Windows 系统包含 IIS 功能,但默认关闭，需要手动打开。
 
 可以参考<http://jingyan.baidu.com/article/48206aeaaacd51216ad6b318.html>
 
-具体步骤: 
+具体步骤:
 
   1. 搜索 `Windows 功能`, 或者打开控制面板
-  2. 点击 `启用或者关闭Windows功能` 
+  2. 点击 `启用或者关闭Windows功能`
   3. 勾选`Internet Information Services`(Internet信息服务) 和
-    - 确保勾选子目录 `万维网服务`>`应用程序和开发功能`>`ASP.NET 4.x`(不同系统版本可能有区别)
-    - 确保勾选子目录 `万维网服务`>`常见HTTP功能`>`静态内容``默认文档`
-    - 确保勾选子目录下 `万维网服务`>`web管理工具`
+     - 确保勾选子目录 `万维网服务`>`应用程序和开发功能`>`ASP.NET 4.x`(不同系统版本可能有区别)
+     - 确保勾选子目录 `万维网服务`>`常见HTTP功能`>`静态内容`>`默认文档`
+     - 确保勾选子目录下 `万维网服务`>`web管理工具`
   4. 点击确定,等待开启
 
 ### II. 下载代码
@@ -47,19 +46,19 @@ Windows 系统包含 IIS 功能,但默认关闭，需要手动打开。
 
 ## 兼容支持
 
-* 文件格式:
-  * [x] PDF
-  * [x] doc
-  * [x] docx
-  * [x] rtf
-  * [x] png
-  * [x] jpg
-  * [x] tiff
-  * [x] txt
-* 功能设置：
-  * [x] 份数设置
-  * [x] 页码设置(pdf)
-  * [x] 多文件上传
+- 文件格式:
+  - [x] PDF
+  - [x] doc
+  - [x] docx
+  - [x] rtf
+  - [x] png
+  - [x] jpg
+  - [x] tiff
+  - [x] txt
+- 功能设置：
+  - [x] 份数设置
+  - [x] 页码设置(pdf)
+  - [x] 多文件上传
 
 ## 截图
 
