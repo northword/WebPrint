@@ -61,7 +61,7 @@ public partial class Print : System.Web.UI.Page
             if (!this.needPwd)
             {
                 ///密码控件提示
-                this.Message.Text = "<strong>注意:未设置打印密码任何人可直接打印</strong>";
+                this.Message.Text = "<span>注意：当前未设置打印密码，任何人可直接打印</span>";
             }
             this.Message.Text += Session["msg"];
             Session.Remove("msg");
@@ -114,11 +114,11 @@ public partial class Print : System.Web.UI.Page
             HttpPostedFile file = files[i];
             if (this.Upload(file, copies, range))
             {
-                msg += "<div style='color:green;'>" + file.FileName + "已添加到打印队列</div>";
+                msg += "<div id='print-success'>" + file.FileName + "已添加到打印队列</div>";
             }
             else
             {
-                msg += "<div style='color:green;'>" + file.FileName + "打印失败</div>";
+                msg += "<div id='print-error'>" + file.FileName + "打印失败</div>";
             }
         }
         return msg;
@@ -151,10 +151,12 @@ public partial class Print : System.Web.UI.Page
         {
             //保存并打印上传文件
             Random r = new Random();
-            string path = FIlE_DIR + DateTime.UtcNow.ToString("MM-dd_HH-mm-ss_") + r.Next().ToString() + GetType(file.FileName);
-            file.SaveAs(path);
+            //string path = FIlE_DIR + DateTime.UtcNow.ToString("MM-dd_HH-mm-ss_") + r.Next().ToString() + GetType(file.FileName);
+            string path = FIlE_DIR + DateTime.Now.ToString("MM-dd_HH-mm-ss_") + DateTime.UtcNow.ToString("HH-mm-ss_") + r.Next().ToString() + GetType(file.FileName);
+			file.SaveAs(path);
             //打印
             return print(path, copies, range, type);
+			//return false;
         }
     }
 
@@ -206,12 +208,28 @@ public partial class Print : System.Web.UI.Page
                 //pdf
                 // https://www.sumatrapdfreader.org/docs/Command-line-arguments.html
                 cmd = Server.MapPath("~/bin/") + "SumatraPDF.exe";
-                param = string.Format("-print-to-default -silent -print-settings \"{0}x,{1}\"  -appdata \"{3}\" \"{2}\"", copies, range, path, FIlE_DIR);
+                //param = string.Format("-print-to-default -silent -print-settings \"{0}x,{1}\"  -appdata \"{3}\" \"{2}\"", copies, range, path, FIlE_DIR);
+                param = string.Format("-print-to-default -silent -print-settings \"{0}x,{1}\" \"{2}\"", copies, range, path);
+				
+				//this.log(cmd.ToString(), "cmd");
+				//this.log(param.ToString(), "param");
+
                 copies = 1;
                 break;
-
+			
+			case ".doc":
+			case ".docx":
+				//word
+				// https://help.libreoffice.org/3.4/Common/Starting_the_Software_With_Parameters/zh-CN
+				cmd = @"C:\Program Files\LibreOffice\program\soffice";
+				param = string.Format("-headless -p \"{0}\"",path);
+				//this.log(cmd.ToString(), "cmd");
+				//this.log(param.ToString(), "param");
+				break;
+				
+				
             default:
-                //word
+                //txt
                 cmd = "write";
                 param = string.Format("/p \"{0}\"", path);
                 break;

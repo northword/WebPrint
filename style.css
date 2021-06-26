@@ -53,27 +53,42 @@ h2 {
 }
 
 .warn {
-    text-align: center;
-    color: greenyellow;
+    /*text-align: center;*/
+    color: #f3c500/*greenyellow*/;
+	display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    line-height: 1.8em;
 }
 
 #messages {
     font-size: 1.2em;
     font-weight: 700;
     text-align: center;
+	background: #f3c500;
+	color: white;
+}
+
+#print-success {
+	background:green;
+}
+
+#print-error {
+	background: red;
 }
 
 .header {
     padding: 5px;
     color: #FFF;
     font-size: 15px;
-    color: floralwhite;
-    background: rgba(233, 30, 99, 0.6);
+    color: white/*floralwhite*/;
+    /*background: rgba(233, 30, 99, 0.6);*/
+	background: #00bcd4;
 }
 
 .listtype li {
     font-weight: 800;
-    display: inline-block;
+    /*display: inline-block;*/ 
     margin-left: .5em;
 }
 

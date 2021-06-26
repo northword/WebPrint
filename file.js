@@ -15,7 +15,7 @@
     }
 
     function Msg(msg) {
-        $id("messages").innerHTML += '<small>' + msg + '</small><br/>';
+        $id("messages").innerHTML += '<span>' + msg + '</span><br/>';
     }
     // file drag hover
     function FileDragHover(e) {

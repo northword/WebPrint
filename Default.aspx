@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>在线打印共享</title>
+    <title>打印服务器WEB端</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
@@ -17,20 +17,26 @@
         <div class="print">
             <div class="header">
                 <div class="tips">
-                    <span>格式:</span>
+                    <span>支持格式:</span>
                     <ul class="listtype">
-                        <li>PDF(.pdf)</li>
-                        <li>图片(.png .jpg .tiff)</li>
-                        <li>文本(.txt)</li>
-                        <li>Word(.doc .docx .rtf)</li>
+                        <li>PDF (.pdf)</li>
+                        <li>图片 (.png .jpg .tiff)</li>
+                        <li>文本 (.txt)</li>
+                        <li>Word (.doc .docx .rtf)</li>
                     </ul>
                 </div>
-                <div class="warn">仅PDF支持<code>"选页"</code>设置,WORD可能有排版兼容问题</div>
-                <div id="messages">
-                    <asp:label id="Message" runat="server"></asp:label>
-                </div>
+                <div class="warn">
+					<ul class="listtype">
+						<li>仅 PDF 支持<code>"选页"</code>设置</li>
+						<li>Word 可能有排版兼容问题，尤其不建议doc</li>
+						<li>默认单页打印且无法更改</li>
+						<li>提交后请等一会儿，别手抽一直点</li>
+					</ul>
+				</div>
             </div>
-
+			<div id="messages">
+				<asp:label id="Message" runat="server"></asp:label>
+			</div>
             <form id="upload" method="POST" enctype="multipart/form-data">
                 <div class="agileinfo">
                     <div id="filedrag">
@@ -58,7 +64,8 @@
         </div>
     </main>
     <footer>
-        <p><strong>&lsaquo;&rsaquo;</strong> with <strong>&hearts;</strong> by New Future | <a href="https://github.com/NewFuture/WebPrint">获取源码</a></p>
+        <p>This page is based on open source projects <a href="https://github.com/NewFuture/WebPrint">NewFuture/WebPrint</a> </p>
+		<p>Modified by <a href="https://github.com/Northword/WebPrint" >Jianbei Zhang</a>, 2021.6.21</p>
     </footer>
     <script src="file.js"></script>
 
