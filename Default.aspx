@@ -13,7 +13,7 @@
 <body>
     <h1>打印文件</h1>
     <main class="agile-its">
-        <h2>上传文件</h2>
+        <h2>B103 Brother HL 2240D</h2>
         <div class="print">
             <div class="header">
                 <div class="tips">
@@ -29,10 +29,12 @@
 					<ul class="listtype">
 						<li>仅 PDF 支持<code>"选页"</code>设置</li>
 						<li>Word 可能有排版兼容问题，尤其不建议doc</li>
-						<li>默认单页打印且无法更改</li>
+						<li>默认单面打印且无法更改</li>
 						<li>提交后请等一会儿，别手抽一直点</li>
-					</ul>
+						<li></li>
+					</ul>					
 				</div>
+				<p><a href="./weixin_file_tutor.html"><b>微信接收的文件：</b>文件详情页右上角`···` -> 保存到手机 -> 在这里点上传 -> <code>./Download/Weixin</code></a></p>
             </div>
 			<div id="messages">
 				<asp:label id="Message" runat="server"></asp:label>
@@ -42,7 +44,7 @@
                     <div id="filedrag">
                         <span class="uploadtip">点击上传文件<br />
                             或者拖拽至此<br />
-                            支持多个文件</span>
+                            支持多个文件<br /></span>
                     </div>
                     <input type="file" id="files" name="files[]" multiple="multiple" required="required" accept=".pdf,.doc,.docx,.rtf,.txt,image/jpg,image/tiff,image/png" />
                 </div>
